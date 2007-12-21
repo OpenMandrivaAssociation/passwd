@@ -12,6 +12,7 @@ BuildRequires:	glib2-devel
 BuildRequires:	libuser-devel
 BuildRequires:	pam-devel
 BuildRequires:	popt-devel
+Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 The passwd package contains a system utility (passwd) which sets
