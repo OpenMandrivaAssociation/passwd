@@ -24,8 +24,6 @@ The passwd package contains a system utility (passwd) which sets
 and/or changes passwords, using PAM (Pluggable Authentication
 Modules).
 
-To use passwd, you should have PAM installed on your system.
-
 %prep
 
 %setup -q
