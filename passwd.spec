@@ -1,13 +1,18 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.74
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD
 Group:		System/Base
 Source0:	passwd-%{version}.tar.bz2
+# (fc) add support for notifying gnome-keyring pam module of password change
+Patch0:		passwd-0.74-gnomekeyring.patch
 # This url is stupid, someone come up with a better one _please_!
 URL:		http://www.freebsd.org
-Requires:	pam >= 0.59, pwdb >= 0.58, /etc/libuser.conf
+Requires:	pam >= 0.59
+Requires:	pwdb >= 0.58
+#needed for file-deps /etc/libuser.conf
+Requires:	libuser
 BuildRequires:	glib2-devel
 BuildRequires:	libuser-devel
 BuildRequires:	pam-devel
@@ -24,30 +29,22 @@ To use passwd, you should have PAM installed on your system.
 %prep
 
 %setup -q
+%patch0 -p1 -b .gnome-keyring
 
 %build
-%configure --without-selinux
+%configure2_5x --without-selinux
 %make
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 install -d %{buildroot}%{_sysconfdir}/pam.d
-install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_mandir}/man1
 
 %makeinstall_std
 
 install -m0644 passwd.pamd %{buildroot}%{_sysconfdir}/pam.d/passwd
-perl -p -i -e 's|use_authtok nullok|use_authtok nullok md5|' %{buildroot}%{_sysconfdir}/pam.d/passwd
+
 %find_lang %{name}
-
-# cleanup
-rm -f %{buildroot}%{_bindir}/{chfn,chsh}
-rm -f %{buildroot}%{_mandir}/man1/{chfn.1,chsh.1}
-
-# strip is borked...
-chmod 755 %{buildroot}%{_bindir}/passwd
 
 %clean
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
