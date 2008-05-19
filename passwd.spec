@@ -1,7 +1,7 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.74
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	BSD
 Group:		System/Base
 Source0:	passwd-%{version}.tar.bz2
@@ -11,6 +11,7 @@ Patch0:		passwd-0.74-gnomekeyring.patch
 URL:		http://www.freebsd.org
 Requires:	pam >= 0.59
 Requires:	pwdb >= 0.58
+Requires(pre):	setup >= 2.7.12-2mdv 
 #needed for file-deps /etc/libuser.conf
 Requires:	libuser
 BuildRequires:	glib2-devel
@@ -50,7 +51,7 @@ install -m0644 passwd.pamd %{buildroot}%{_sysconfdir}/pam.d/passwd
 %files -f %{name}.lang
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/pam.d/passwd
-%attr(4511,root,root) %{_bindir}/passwd
+%attr(2711,root,shadow) %{_bindir}/passwd
 %{_mandir}/man1/passwd.1*
 
 
