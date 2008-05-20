@@ -1,7 +1,7 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.74
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	BSD
 Group:		System/Base
 Source0:	passwd-%{version}.tar.bz2
@@ -51,7 +51,7 @@ install -m0644 passwd.pamd %{buildroot}%{_sysconfdir}/pam.d/passwd
 %files -f %{name}.lang
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/pam.d/passwd
-%attr(2711,root,shadow) %{_bindir}/passwd
+%attr(4511,root,shadow) %{_bindir}/passwd
 %{_mandir}/man1/passwd.1*
 
 
