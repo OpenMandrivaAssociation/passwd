@@ -1,7 +1,7 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.74
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	BSD
 Group:		System/Base
 Source0:	passwd-%{version}.tar.bz2
