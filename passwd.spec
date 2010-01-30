@@ -1,11 +1,12 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.77
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	BSD
 Group:		System/Base
 URL:		https://fedorahosted.org/passwd/
 Source0:	https://fedorahosted.org/releases/p/a/passwd/%{name}-%{version}.tar.bz2
+Patch0:		passwd-0.77-enable-gnome-keyring.patch
 BuildRequires:	glib2-devel
 BuildRequires:	libuser-devel
 BuildRequires:	pam-devel
@@ -24,6 +25,7 @@ Modules).
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x \
