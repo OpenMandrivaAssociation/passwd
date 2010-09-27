@@ -1,12 +1,12 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
-Version:	0.77
-Release:	%mkrel 3
+Version:	0.78
+Release:	%mkrel 1
 License:	BSD
 Group:		System/Base
 URL:		https://fedorahosted.org/passwd/
 Source0:	https://fedorahosted.org/releases/p/a/passwd/%{name}-%{version}.tar.bz2
-Patch0:		passwd-0.77-enable-gnome-keyring.patch
+Patch0:		passwd-0.78-enable-gnome-keyring.patch
 BuildRequires:	glib2-devel
 BuildRequires:	libuser-devel
 BuildRequires:	pam-devel
@@ -25,7 +25,7 @@ Modules).
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .gnome~
 
 %build
 %configure2_5x \
@@ -38,21 +38,20 @@ Modules).
 %make
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
-
-install -d %{buildroot}%{_sysconfdir}/pam.d
+rm -rf %{buildroot}
 
 %makeinstall_std
 
-install -m0644 passwd.pamd %{buildroot}%{_sysconfdir}/pam.d/passwd
+install -m644 passwd.pamd -D %{buildroot}%{_sysconfdir}/pam.d/passwd
 
 %find_lang %{name}
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
 %config(noreplace) %{_sysconfdir}/pam.d/passwd
 %attr(4511,root,shadow) %{_bindir}/passwd
 %{_mandir}/man1/passwd.1*
+%lang(ja) %{_mandir}/ja/man1/passwd.1*
