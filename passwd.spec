@@ -1,7 +1,7 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
-Version:	0.78
-Release:	3
+Version:	0.79
+Release:	1
 License:	BSD
 Group:		System/Base
 Url:		https://fedorahosted.org/passwd/
@@ -12,10 +12,10 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libuser)
-Requires:	pam >= 0.59
+Requires:		pam >= 0.59
 Requires(pre):	setup >= 2.7.12-2mdv 
 #needed for file-deps /etc/libuser.conf
-Requires:	libuser
+Requires:		libuser
 
 %description
 The passwd package contains a system utility (passwd) which sets
