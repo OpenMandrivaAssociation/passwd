@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.79
