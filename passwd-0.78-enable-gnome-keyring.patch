@@ -1,9 +1,0 @@
-diff -p -up passwd-0.78/passwd.pamd.gnome~ passwd-0.78/passwd.pamd
---- passwd-0.78/passwd.pamd.gnome~	2010-07-16 11:57:33.000000000 +0200
-+++ passwd-0.78/passwd.pamd	2010-09-28 00:56:19.724533336 +0200
-@@ -2,4 +2,4 @@
- auth       include	system-auth
- account    include	system-auth
- password   substack	system-auth
---password   optional	pam_gnome_keyring.so use_authtok
-+password   optional	pam_gnome_keyring.so use_authtok
