@@ -3,7 +3,7 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.79
-Release:	9
+Release:	10
 License:	BSD
 Group:		System/Base
 Url:		https://fedorahosted.org/passwd/
@@ -29,7 +29,7 @@ Modules).
 %apply_patches
 
 %build
-%configure2_5x \
+%configure \
 	--without-selinux \
 	--without-pwdb \
 	--with-audit \
