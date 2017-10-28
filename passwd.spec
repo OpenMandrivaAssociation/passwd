@@ -6,8 +6,8 @@ Version:	0.79
 Release:	10
 License:	BSD
 Group:		System/Base
-Url:		https://fedorahosted.org/passwd/
-Source0:	https://fedorahosted.org/releases/p/a/passwd/%{name}-%{version}.tar.bz2
+Url:		https://pagure.io/passwd
+Source0:	https://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		passwd-0.79-enable-gnome-keyring.patch
 BuildRequires:	audit-devel
 BuildRequires:	pam-devel
