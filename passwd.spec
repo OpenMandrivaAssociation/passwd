@@ -1,5 +1,4 @@
 %define _disable_ld_no_undefined 1
-%define _disable_rebuild_configure 1
 
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
@@ -9,6 +8,7 @@ License:	BSD
 Group:		System/Base
 Url:		https://pagure.io/passwd
 Source0:	https://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
+BuildRequires:	m4
 BuildRequires:	audit-devel >= 2.8.2
 BuildRequires:	pam-devel
 BuildRequires:	gettext-devel
