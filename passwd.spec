@@ -10,6 +10,7 @@ Url:		https://pagure.io/passwd
 Source0:	https://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
 BuildRequires:	audit-devel
 BuildRequires:	pam-devel
+BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libuser)
