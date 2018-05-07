@@ -28,6 +28,7 @@ Modules).
 %prep
 %setup -q
 %apply_patches
+./autogen.sh
 
 %build
 %configure \
