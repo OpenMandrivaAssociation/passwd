@@ -1,9 +1,0 @@
---- passwd-0.79/passwd.pamd~	2012-11-26 10:33:50.000000000 -0500
-+++ passwd-0.79/passwd.pamd	2013-07-20 22:02:23.506281409 -0400
-@@ -2,5 +2,5 @@
- auth       include	system-auth
- account    include	system-auth
- password   substack	system-auth
---password   optional	pam_gnome_keyring.so use_authtok
-+password   optional	pam_gnome_keyring.so use_authtok
- password   substack	postlogin
