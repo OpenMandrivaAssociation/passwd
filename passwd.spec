@@ -15,6 +15,9 @@ BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libuser)
+%ifarch riscv64
+BuildRequires:	atomic-devel
+%endif
 Requires:	pam >= 1:1.3.0
 Requires:	setup >= 2.8.9
 #needed for file-deps /etc/libuser.conf
