@@ -3,11 +3,13 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.80
-Release:	3
+Release:	4
 License:	BSD
 Group:		System/Base
 Url:		https://pagure.io/passwd
 Source0:	https://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
+Patch0:		https://src.fedoraproject.org/rpms/passwd/raw/master/f/passwd-0.80-manpage.patch
+Patch1:		https://src.fedoraproject.org/rpms/passwd/raw/master/f/passwd-0.80-S-output.patch
 BuildRequires:	m4
 BuildRequires:	audit-devel >= 2.8.2
 BuildRequires:	pam-devel
@@ -29,8 +31,8 @@ and/or changes passwords, using PAM (Pluggable Authentication
 Modules).
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
+
 autoreconf -fis -Wall
 ./autogen.sh
 
@@ -41,10 +43,10 @@ autoreconf -fis -Wall
 	--with-audit \
 	--with-libuser
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 install -m644 passwd.pamd -D %{buildroot}%{_sysconfdir}/pam.d/passwd
 
