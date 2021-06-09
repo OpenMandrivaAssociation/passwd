@@ -3,7 +3,7 @@
 Summary:	The passwd utility for setting/changing passwords using PAM
 Name:		passwd
 Version:	0.80
-Release:	4
+Release:	5
 License:	BSD
 Group:		System/Base
 Url:		https://pagure.io/passwd
@@ -11,7 +11,6 @@ Source0:	https://releases.pagure.org/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		https://src.fedoraproject.org/rpms/passwd/raw/master/f/passwd-0.80-manpage.patch
 Patch1:		https://src.fedoraproject.org/rpms/passwd/raw/master/f/passwd-0.80-S-output.patch
 BuildRequires:	m4
-BuildRequires:	audit-devel >= 2.8.2
 BuildRequires:	pam-devel
 BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(popt)
@@ -40,7 +39,7 @@ autoreconf -fis -Wall
 %configure \
 	--without-selinux \
 	--without-pwdb \
-	--with-audit \
+	--without-audit \
 	--with-libuser
 
 %make_build
